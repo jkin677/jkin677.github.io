@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="demo.css" rel="stylesheet">
+  <title>Blockly Demo: Generating JavaScript</title>
+  <script src="../../blockly_uncompressed.js"></script>
+  <script src="../../blocks_compressed.js"></script>
+  <script src="../../javascript_compressed.js"></script>
+  <script src="../../python_compressed.js"></script>
+  <script src="../../lua_compressed.js"></script>
+  <script src="../../msg/js/en.js"></script>
+  
+  <link href="prism.css" rel="stylesheet" />
+  
+  <script src="test_block.js"></script>
+  <style>
+    body {
+      background-color: #fff;
+      font-family: sans-serif;
+    }
+    h1 {
+      font-weight: normal;
+      font-size: 140%;
+    }
+  </style>
+</head>
+<body>
+<script src="prism.js"></script>
+  <h1>Cinderly &gt;
+    <a href="task1.html">Task 1</a> &gt; Task 2 &gt;
+    <a href="task3.html">Task 3</a></h1>
+
+    <p style="line-height: 120%">Now that you understand pointers, lets look at our first parallel block<br>
+      Try using the parallel snippet block to sort print the three arrays, sorted, in the example below. Hint: Blockly has a built-in sorter under lists.<br>
+      This multiprocessing block acts like a loop, that runs over the data set and executes the code in the snippet. The iterations of the loop are spread over the different cores. <br>
+	  You will need to define a new variable that will contain one element of the data set each time the snippet is run. 
+      </p>
+  <p>
+      Show code: 
+      <button onclick="showCode('language-python')">Python</button>
+      <button disabled onclick="noCode()">JavaScript</button>
+      <button disabled onclick="noCode()">PHP</button>
+      <button onclick="showCode('language-lua')">Lua</button>
+      <button disabled onclick="noCode()">Dart</button>&emsp;
+	  <button onclick="toggleSolution()">Show Solution</button>
+      <!-- <button onclick="runCode()">Run JavaScript</button> -->
+    </p>
+  <img id="solution" src="task2.jpg" style="display:none; " height="350px" width="520px"></img>
+  <div id="blocklyDiv" style="height: 80vh; width: 70vw; float: left"></div>
+
+  <xml id="toolbox" style="display: none">
+    
+    
+    <category name="Math" colour="%{BKY_MATH_HUE}">
+      <block type="math_number">
+        <field name="NUM">123</field>
+      </block>
+    </category>
+    <category name="Text" colour="%{BKY_TEXTS_HUE}">
+      
+      <block type="text_print">
+        <value name="TEXT">
+          <shadow type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+        </value>
+      </block>
+      
+    </category>
+    <category name="Lists" colour="%{BKY_LISTS_HUE}">
+      <block type="lists_create_with">
+        <mutation items="0"></mutation>
+      </block>
+      <block type="lists_sort"></block>
+    </category>
+    <sep></sep>
+    <category name="Variables" colour="%{BKY_VARIABLES_HUE}" custom="VARIABLE"></category>
+    <sep></sep>
+	<category name="Parallel" colour="#db6a00">
+      
+    <block type="multiprocess_snippet">
+      <value name="CORES">
+        <shadow type="math_number">
+        <field name="NUM">4</field>
+        </shadow>
+      </value>
+      </block>
+    </category>
+	
+  </xml>
+  
+  <xml id="startBlocks" style="display: none">
+    <block id="ORIGIN_BLOCK" type="procedures_defreturn" deletable="false" name="Test" inline="false" x="-200" y="-200">
+		<field name="NAME">function</field>
+    </block>
+	
+	<block id="snip" type="multiprocess_snippet"  name="snip" inline="false" x="20" y="20">
+		<value name="CORES">
+			<shadow type="math_number">
+			<field name="NUM">4</field>
+			</shadow>
+		</value>
+		<value name="DATA">
+			<block type="lists_create_with" id="klw1m]1e9C9T36B6UrzD" x="338" y="363">
+				<mutation items="3"></mutation>
+				<value name="ADD0">
+				  <block type="lists_create_with" id="$im^-(4C|7_58.3q=-m}">
+					<mutation items="3"></mutation>
+					<value name="ADD0">
+					  <block type="math_number" id="5xbSa+bDQP9}j+1;/G$g">
+						<field name="NUM">3</field>
+					  </block>
+					</value>
+					<value name="ADD1">
+					  <block type="math_number" id="*:[^}`P=pFmf:`y?6PH/">
+						<field name="NUM">1</field>
+					  </block>
+					</value>
+					<value name="ADD2">
+					  <block type="math_number" id=":4ab;6,$X7sN|vn`0~^$">
+						<field name="NUM">2</field>
+					  </block>
+					</value>
+				  </block>
+				</value>
+				<value name="ADD1">
+				  <block type="lists_create_with" id="87I)@@v4rwse]Wp}bpQh">
+					<mutation items="3"></mutation>
+					<value name="ADD0">
+					  <block type="math_number" id="zGY*Tw~Rc(@2t^(mbM,.">
+						<field name="NUM">5</field>
+					  </block>
+					</value>
+					<value name="ADD1">
+					  <block type="math_number" id="W!r_5c]bCkQ!NpBGi7Fb">
+						<field name="NUM">4</field>
+					  </block>
+					</value>
+					<value name="ADD2">
+					  <block type="math_number" id="v2$nd3zfeZyXvU}r(S|g">
+						<field name="NUM">6</field>
+					  </block>
+					</value>
+				  </block>
+				</value>
+				<value name="ADD2">
+				  <block type="lists_create_with" id="25VHP[}LT4uNkFV(yg[:">
+					<mutation items="3"></mutation>
+					<value name="ADD0">
+					  <block type="math_number" id="XWv3x9,RrJ)2L]qI(?Ly">
+						<field name="NUM">9</field>
+					  </block>
+					</value>
+					<value name="ADD1">
+					  <block type="math_number" id="URrF8h0L2oz9dB9M(86E">
+						<field name="NUM">8</field>
+					  </block>
+					</value>
+					<value name="ADD2">
+					  <block type="math_number" id="+V%dhEKVsV=Z_R-jo5Ec">
+						<field name="NUM">7</field>
+					  </block>
+					</value>
+				  </block>
+				</value>
+			</block>
+		</value>
+		</value>
+    </block>
+	
+	
+  </xml>
+  
+  <script>
+    var demoWorkspace = Blockly.inject('blocklyDiv',
+        {media: '../../mexdia/',
+         toolbox: document.getElementById('toolbox')});
+    Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),
+                               demoWorkspace);
+	PARALLEL_HUE = "#db6a00"
+	demoWorkspace.addChangeListener(Blockly.FieldFunction.prototype.onFunctionRename);
+
+    function showCode(lang) {
+      // Generate JavaScript code and display it.
+      Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+	  if (lang == 'language-python'){
+	      var code = Blockly.Python.workspaceToCode(demoWorkspace);
+	  }
+	  else if (lang == 'language-lua'){
+	      var code = Blockly.Lua.workspaceToCode(demoWorkspace);
+	  }
+      
+      resetFunctionCounter()
+      document.getElementById('code').textContent = code
+	  document.getElementById('code').className = lang
+	  Prism.highlightElement(document.getElementById('code'))
+    }
+	
+    function toggleSolution(){ 
+	  if (document.getElementById('solution').style.display == 'none'){
+		document.getElementById('solution').style.display = 'block'
+	  }
+	  else{
+		document.getElementById('solution').style.display= 'none';
+	  }
+	}
+	
+    function luaCode() {
+      // Generate JavaScript code and display it.
+      resetFunctionCounter()
+      //makeParallelFunctions()
+      var code = "\nimport multiprocessing\n" + Blockly.Lua.workspaceToCode(demoWorkspace);
+      //alert(code);
+      document.getElementById('code').textContent = code
+	  Prism.highlightElement(document.getElementById('code'))
+    }
+
+    function noCode() {
+      alert("Language not implemented yet");
+    }
+  </script>
+  <div dark-code="">Generated Code: 
+    <pre><code id="code" class="language-python"></code></pre>
+  </div>
+  </body>
+</html>

@@ -590,7 +590,7 @@
       // Generate JavaScript code and display it.
       Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
 	  if (lang == 'language-python'){
-	      var code = Blockly.Python.workspaceToCode(demoWorkspace);
+      var code = "\nimport multiprocessing\n" + Blockly.Python.workspaceToCode(demoWorkspace);
 	  }
 	  else if (lang == 'language-lua'){
 	      var code = Blockly.Lua.workspaceToCode(demoWorkspace);
